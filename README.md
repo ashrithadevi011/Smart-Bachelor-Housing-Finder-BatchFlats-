@@ -1,4 +1,4 @@
-# Smart-Bachelor-Housing-Finder-BatchFlats-
+# Smart-Bachelor-Housing-Finder-BatchFlats
 
 Smart Bachelor Housing Finder is a full-stack web application designed to help bachelors easily find rental houses and compatible roommates without paying brokerage fees. The platform provides bachelor-friendly property listings, smart roommate matching, and review analysis to improve trust and transparency in rental listings.
 
