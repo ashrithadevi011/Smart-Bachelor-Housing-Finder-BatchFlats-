@@ -21,7 +21,7 @@ Food included
 
 The backend processes these filters and retrieves matching properties from the database.
 
-Property Details Page:
+#Property Details Page:
 
 Each property has a detailed page displaying:
 
