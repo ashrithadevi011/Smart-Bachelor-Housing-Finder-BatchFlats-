@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block title %}Find Roommates - BatchFlats{% endblock %}
+
+{% block content %}
+<div class="hero" style="padding: 3rem 2rem; margin-bottom: 2rem;">
+    <h1 style="font-size: 2.5rem;"><i class="fa-solid fa-users" style="color: var(--primary-blue);"></i> AI Roommate
+        Matching</h1>
+    <p>Find compatible bachelor roommates based on lifestyle, budget, and habits.</p>
+</div>
+
+<div class="property-grid" style="grid-template-columns: 300px 1fr;">
+    <!-- Post Requirements Sidebar -->
+    <div
+        style="background: var(--white); padding: 2rem; border-radius: 16px; border: 1px solid var(--border-color); height: fit-content;">
+        <h3 style="margin-bottom: 1.5rem;">Post Your Requirement</h3>
+
+        {% if session.get('user_id') %}
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label>Target Location</label>
+                <input type="text" name="location" class="form-control" required placeholder="e.g. Indiranagar">
+            </div>
+            <div class="form-group">
+                <label>Budget (₹/mo)</label>
+                <input type="number" name="budget" class="form-control" required placeholder="10000">
+            </div>
+            <div class="form-group">
+                <label>Profession</label>
+                <select name="profession" class="form-control">
+                    <option value="Student">Student</option>
+                    <option value="IT Professional">IT Professional</option>
+                    <option value="Business">Business</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Food Habits</label>
+                <select name="food_preference" class="form-control">
+                    <option value="Veg">Vegetarian</option>
+                    <option value="Non-Veg">Non-Vegetarian</option>
+                    <option value="Any">Any</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Sleep Schedule</label>
+                <select name="sleep_schedule" class="form-control">
+                    <option value="Early Bird">Early Bird (Sleep early)</option>
+                    <option value="Night Owl">Night Owl (Sleep late)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Smoking Preference</label>
+                <select name="smoking_preference" class="form-control">
+                    <option value="No">No Smoking</option>
+                    <option value="Okay with it">Okay outside</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </div>
+            <button class="btn-primary" style="width: 100%; margin-top: 1rem;">Post Requirement</button>
+        </form>
+        {% else %}
+        <div class="alert alert-info" style="text-align: center;">
+            <p style="margin-bottom: 1rem;">Log in to post your roommate requirements.</p>
+            <a href="{{ url_for('login') }}" class="btn-primary" style="display: inline-block;">Login</a>
+        </div>
+        {% endif %}
+    </div>
+
+    <!-- Roommate Listings -->
+    <div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+            <h2>Recent Roommate Posts</h2>
+            {% if session.get('user_id') %}
+            <button class="btn-secondary" style="font-size: 0.9rem;"><i class="fa-solid fa-wand-magic-sparkles"></i> AI
+                Auto-Match</button>
+            {% endif %}
+        </div>
+
+        <div class="property-grid" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));">
+            {% for post in posts %}
+            <div class="property-card" style="padding: 1.5rem; display: flex; flex-direction: column;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <div
+                            style="width: 40px; height: 40px; background: var(--border-color); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-user text-muted"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 600;">{{ post.user.name if post.user else "User" }}</div>
+                            <div style="font-size: 0.8rem; color: var(--text-muted);">{{ post.profession }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 1rem; flex: 1;">
+                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;"><i class="fa-solid fa-location-dot"
+                            style="color: var(--text-muted);"></i> {{ post.location }}</h4>
+                    <div style="font-size: 1.25rem; font-weight: 700; color: var(--primary-blue); margin-bottom: 1rem;">
+                        Budget: ₹{{ post.budget }}</div>
+
+                    <ul
+                        style="list-style: none; padding: 0; font-size: 0.9rem; color: var(--text-muted); display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;">
+                        <li><i class="fa-solid fa-utensils"></i> {{ post.food_preference }}</li>
+                        <li><i class="fa-solid fa-bed"></i> {{ post.sleep_schedule }}</li>
+                        <li><i class="fa-solid fa-smoking"></i> {{ post.smoking_preference }}</li>
+                    </ul>
+                </div>
+
+                <button class="btn-secondary" style="width: 100%;"><i class="fa-solid fa-message"></i> Connect</button>
+
+                {% if session.get('user_id') %}
+                <!-- Mock AI Score -->
+                <div
+                    style="text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed var(--border-color);">
+                    <span
+                        style="background: #ecfeff; color: #0e7490; padding: 0.3rem 0.8rem; border-radius: 99px; font-weight: 600; font-size: 0.8rem;">
+                        <i class="fa-solid fa-bolt"></i> 87% Match Score
+                    </span>
+                </div>
+                {% endif %}
+            </div>
+            {% else %}
+            <div
+                style="grid-column: 1 / -1; text-align: center; padding: 3rem; background: var(--white); border-radius: 16px; border: 1px dashed var(--border-color);">
+                <i class="fa-solid fa-users-slash fa-3x" style="color: var(--text-muted); margin-bottom: 1rem;"></i>
+                <p>No roommate posts available right now.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

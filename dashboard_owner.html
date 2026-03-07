@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Owner Dashboard - BatchFlats{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <div>
+        <h1>Welcome, {{ session.get('name') }}!</h1>
+        <p class="text-muted">Property Owner Dashboard</p>
+    </div>
+    <a href="{{ url_for('add_property') }}" class="btn-primary"><i class="fa-solid fa-plus"></i> Add Property</a>
+</div>
+
+<div style="margin-top: 2rem;">
+    <h2 style="margin-bottom: 1.5rem;">Your Properties</h2>
+
+    <div class="property-grid">
+        {% for property in properties %}
+        <div class="property-card" style="display: flex; flex-direction: column;">
+            {% if property.image_path %}
+            <img src="{{ url_for('static', filename=property.image_path.split('static/')[-1]) if 'static/' in property.image_path else property.image_path }}"
+                alt="House Image" class="property-img">
+            {% else %}
+            <div class="property-img"
+                style="display: flex; align-items: center; justify-content: center; background: #e2e8f0; color: #94a3b8;">
+                <i class="fa-solid fa-image fa-3x"></i>
+            </div>
+            {% endif %}
+
+            <div class="property-content" style="flex: 1;">
+                <h3 class="property-title">{{ property.title }}</h3>
+                <div class="property-location"><i class="fa-solid fa-location-dot"></i> {{ property.location }}</div>
+                <div class="property-rent">₹{{ property.rent }}/mo</div>
+            </div>
+
+            <div
+                style="padding: 1rem 1.5rem; background: var(--bg-light); border-top: 1px solid var(--border-color); display: flex; justify-content: space-between;">
+                <a href="{{ url_for('property_details', property_id=property.property_id) }}" class="btn-secondary"
+                    style="padding: 0.3rem 0.8rem; font-size: 0.9rem;">View</a>
+                <button class="btn-secondary"
+                    style="padding: 0.3rem 0.8rem; font-size: 0.9rem; border-color: #ef4444; color: #ef4444 !important;">Delete</button>
+            </div>
+        </div>
+        {% else %}
+        <div
+            style="grid-column: 1 / -1; text-align: center; padding: 4rem; background: var(--white); border-radius: 16px; border: 1px dashed var(--border-color);">
+            <i class="fa-solid fa-house-circle-exclamation fa-3x"
+                style="color: var(--text-muted); margin-bottom: 1rem;"></i>
+            <h3>No Properties Listed</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1.5rem;">You haven't added any properties to rent out
+                yet.</p>
+            <a href="{{ url_for('add_property') }}" class="btn-primary">Add Your First Property</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

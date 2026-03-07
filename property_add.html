@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}Add Property - BatchFlats{% endblock %}
+
+{% block content %}
+<div
+    style="max-width: 800px; margin: 0 auto; background: var(--white); padding: 2.5rem; border-radius: 16px; border: 1px solid var(--border-color); box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+    <h2 style="margin-bottom: 2rem;">List Your Property</h2>
+
+    <form action="{{ url_for('add_property') }}" method="POST" enctype="multipart/form-data">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+            <div class="form-group" style="grid-column: 1 / -1;">
+                <label for="title">Property Title</label>
+                <input type="text" id="title" name="title" class="form-control" required
+                    placeholder="e.g. Spacious 2BHK in Kormangala">
+            </div>
+
+            <div class="form-group">
+                <label for="location">Location / Area</label>
+                <input type="text" id="location" name="location" class="form-control" required
+                    placeholder="e.g. Kormangala, Bangalore">
+            </div>
+
+            <div class="form-group">
+                <label for="rent">Monthly Rent (₹)</label>
+                <input type="number" id="rent" name="rent" class="form-control" required placeholder="15000">
+            </div>
+
+            <div class="form-group">
+                <label for="deposit">Deposit Amount (₹)</label>
+                <input type="number" id="deposit" name="deposit" class="form-control" required placeholder="50000">
+            </div>
+
+            <div class="form-group">
+                <label for="rooms">Number of Rooms</label>
+                <input type="number" id="rooms" name="rooms" class="form-control" required placeholder="2" min="1">
+            </div>
+
+            <div class="form-group">
+                <label for="furnishing">Furnishing Type</label>
+                <select id="furnishing" name="furnishing" class="form-control">
+                    <option value="Fully Furnished">Fully Furnished</option>
+                    <option value="Semi Furnished">Semi Furnished</option>
+                    <option value="Unfurnished">Unfurnished</option>
+                </select>
+            </div>
+
+            <div class="form-group"
+                style="display: flex; flex-direction: column; justify-content: center; gap: 0.5rem; padding: 1rem; background: var(--bg-light); border-radius: 8px;">
+                <label style="font-weight: 600; margin: 0;"><input type="checkbox" name="bachelor_allowed" checked>
+                    Bachelors Allowed</label>
+                <label style="font-weight: 600; margin: 0;"><input type="checkbox" name="food"> Food/Mess
+                    Available</label>
+                <label style="font-weight: 600; margin: 0;"><input type="checkbox" name="wifi"> WiFi Available</label>
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 1.5rem;">
+            <label for="description">Property Description</label>
+            <textarea id="description" name="description" class="form-control" rows="4"
+                placeholder="Describe the amenities, nearby places, rules, etc."></textarea>
+        </div>
+
+        <div class="form-group" style="margin-top: 1.5rem;">
+            <label for="image">Upload Property Image</label>
+            <input type="file" id="image" name="image" class="form-control" accept="image/*">
+        </div>
+
+        <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+            <button type="submit" class="btn-primary" style="flex: 1; padding: 1rem; font-size: 1.1rem;">Submit
+                Listing</button>
+            <a href="{{ url_for('dashboard') }}" class="btn-secondary"
+                style="display: flex; align-items: center; justify-content: center; padding: 0 2rem;">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-video" style="background-image: url('{{ url_for('static', filename='images/hero_bg.png') }}');">
+    </div>
+    <div class="hero-content">
+        <h1>Smart Bachelor Housing Finder</h1>
+        <p>Discover friendly houses, verified reviews, and compatible roommates without brokers.</p>
+
+        <div class="hero-search-wrapper">
+            <form class="search-bar" action="{{ url_for('properties_list') }}" method="GET">
+                <input type="text" name="location" placeholder="Search by location (e.g. Bangalore, Kormangala)..."
+                    required>
+                <button type="submit" class="btn-primary">Search</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+        <h2>Featured Listings</h2>
+        <a href="{{ url_for('properties_list') }}"
+            style="color: var(--primary-blue); text-decoration: none; font-weight: 500;">View All <i
+                class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="property-grid">
+        {% for property in properties %}
+        <a href="{{ url_for('property_details', property_id=property.property_id) }}"
+            style="text-decoration: none; color: inherit;">
+            <div class="property-card">
+                {% if property.image_path %}
+                <img src="{{ url_for('static', filename=property.image_path.split('static/')[-1]) }}" alt="House Image"
+                    class="property-img">
+                {% else %}
+                <div class="property-img"
+                    style="display: flex; align-items: center; justify-content: center; background: #e2e8f0; color: #94a3b8;">
+                    <i class="fa-solid fa-image fa-3x"></i>
+                </div>
+                {% endif %}
+
+                <div class="property-content">
+                    <h3 class="property-title">{{ property.title }}</h3>
+                    <div class="property-location"><i class="fa-solid fa-location-dot"></i> {{ property.location }}
+                    </div>
+
+                    <div class="badges">
+                        <span class="badge {{ 'bachelor-true' if property.bachelor_allowed else '' }}">
+                            {{ 'Bachelor Allowed' if property.bachelor_allowed else 'Family Only' }}
+                        </span>
+                        {% if property.furnishing %}
+                        <span class="badge">{{ property.furnishing }}</span>
+                        {% endif %}
+                    </div>
+
+                    <div class="property-rent">₹{{ property.rent }}/mo</div>
+                </div>
+            </div>
+        </a>
+        {% else %}
+        <p>No listings available yet.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

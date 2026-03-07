@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Tenant Dashboard - BatchFlats{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <div>
+        <h1>Welcome, {{ session.get('name') }}!</h1>
+        <p class="text-muted">Tenant Dashboard</p>
+    </div>
+    <a href="{{ url_for('properties_list') }}" class="btn-primary">Find a House</a>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+    <!-- Saved Houses Section (Mocked) -->
+    <div style="background: var(--white); padding: 2rem; border-radius: 16px; border: 1px solid var(--border-color);">
+        <h3 style="margin-bottom: 1rem; color: var(--text-main);"><i class="fa-solid fa-heart"
+                style="color: #ef4444;"></i> Saved Houses</h3>
+        {% if saved_houses %}
+        <!-- List saved houses -->
+        {% else %}
+        <p style="color: var(--text-muted);">You haven't saved any houses yet. Browse properties to find your next home!
+        </p>
+        <a href="{{ url_for('properties_list') }}"
+            style="color: var(--primary-blue); text-decoration: none; font-weight: 500; display: inline-block; margin-top: 1rem;">Browse
+            Properties <i class="fa-solid fa-arrow-right"></i></a>
+        {% endif %}
+    </div>
+
+    <!-- AI Recommendations Section -->
+    <div
+        style="background: var(--white); padding: 2rem; border-radius: 16px; border: 1px solid var(--border-color); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -20px; right: -20px; opacity: 0.05;">
+            <i class="fa-solid fa-robot fa-10x"></i>
+        </div>
+        <h3 style="margin-bottom: 1rem; color: var(--text-main);"><i class="fa-solid fa-wand-magic-sparkles"
+                style="color: var(--primary-blue);"></i> AI Recommendations</h3>
+        <p style="color: var(--text-muted); margin-bottom: 1rem;">Based on your activity, we found these matches for
+            you.</p>
+        <!-- Mock Recommendations -->
+        <div
+            style="background: var(--bg-light); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-color);">
+            <strong>Kormangala 1BHK</strong> - ₹15,000/mo <br>
+            <span class="badge bachelor-true" style="margin-top: 0.5rem; display: inline-block;">95% Match</span>
+        </div>
+    </div>
+</div>
+
+<div
+    style="margin-top: 2rem; background: var(--white); padding: 2rem; border-radius: 16px; border: 1px solid var(--border-color);">
+    <h3 style="margin-bottom: 1rem;"><i class="fa-solid fa-users"></i> Your Roommate Posts</h3>
+    <p style="color: var(--text-muted);">You haven't posted any roommate requirements.</p>
+    <a href="{{ url_for('roommates') }}" class="btn-secondary" style="margin-top: 1rem; display: inline-block;">Find
+        Roommates</a>
+</div>
+{% endblock %}

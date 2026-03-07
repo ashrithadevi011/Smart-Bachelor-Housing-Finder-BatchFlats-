@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block title %}Properties - BatchFlats{% endblock %}
+
+{% block content %}
+<div class="dashboard-header">
+    <h1>Houses for Rent</h1>
+
+    <form action="{{ url_for('properties_list') }}" method="GET" style="display: flex; gap: 0.5rem;">
+        <input type="text" name="location" class="form-control" placeholder="Search location..."
+            value="{{ request.args.get('location', '') }}" style="width: 250px;">
+        <button type="submit" class="btn-primary">Filter</button>
+    </form>
+</div>
+
+<div style="display: flex; gap: 2rem;">
+    <!-- Filter Sidebar -->
+    <aside
+        style="width: 250px; flex-shrink: 0; background: var(--white); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-color); height: fit-content;">
+        <h3 style="margin-bottom: 1rem;">Filters</h3>
+
+        <div class="form-group" style="margin-bottom: 1rem;">
+            <label style="font-weight: 600; font-size: 0.9rem;">Budget</label>
+            <input type="range" min="5000" max="50000" step="1000" style="width: 100%; margin-top: 0.5rem;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
+                <span>₹5k</span>
+                <span>₹50k+</span>
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem;">
+            <label style="font-weight: 600; font-size: 0.9rem;"><input type="checkbox"> Bachelor Allowed Only</label>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem;">
+            <label style="font-weight: 600; font-size: 0.9rem;"><input type="checkbox"> Food Included</label>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 1rem;">
+            <label style="font-weight: 600; font-size: 0.9rem;"><input type="checkbox"> WiFi Available</label>
+        </div>
+
+        <button class="btn-secondary" style="width: 100%;">Apply Filters</button>
+    </aside>
+
+    <!-- Listings -->
+    <div style="flex: 1;">
+        <div class="property-grid">
+            {% for property in properties %}
+            <a href="{{ url_for('property_details', property_id=property.property_id) }}"
+                style="text-decoration: none; color: inherit;">
+                <div class="property-card">
+                    {% if property.image_path %}
+                    <img src="{{ url_for('static', filename=property.image_path.split('static/')[-1]) }}"
+                        alt="House Image" class="property-img">
+                    {% else %}
+                    <div class="property-img"
+                        style="display: flex; align-items: center; justify-content: center; background: #e2e8f0; color: #94a3b8;">
+                        <i class="fa-solid fa-image fa-3x"></i>
+                    </div>
+                    {% endif %}
+
+                    <div class="property-content">
+                        <h3 class="property-title">{{ property.title }}</h3>
+                        <div class="property-location"><i class="fa-solid fa-location-dot"></i> {{ property.location }}
+                        </div>
+
+                        <div class="badges">
+                            <span class="badge {{ 'bachelor-true' if property.bachelor_allowed else '' }}">
+                                {{ 'Bachelor Allowed' if property.bachelor_allowed else 'Family Only' }}
+                            </span>
+                            {% if property.furnishing %}
+                            <span class="badge">{{ property.furnishing }}</span>
+                            {% endif %}
+                            {% if property.wifi %}
+                            <span class="badge"><i class="fa-solid fa-wifi"></i> WiFi</span>
+                            {% endif %}
+                        </div>
+
+                        <div class="property-rent">₹{{ property.rent }}/mo</div>
+                    </div>
+                </div>
+            </a>
+            {% else %}
+            <div
+                style="grid-column: 1 / -1; text-align: center; padding: 4rem; background: var(--white); border-radius: 16px; border: 1px dashed var(--border-color);">
+                <h3>No Properties Found</h3>
+                <p style="color: var(--text-muted); margin-top: 0.5rem;">Try adjusting your search criteria.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
