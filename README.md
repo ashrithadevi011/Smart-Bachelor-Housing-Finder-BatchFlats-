@@ -2,12 +2,12 @@
 
 Smart Bachelor Housing Finder is a full-stack web application designed to help bachelors easily find rental houses and compatible roommates without paying brokerage fees. The platform provides bachelor-friendly property listings, smart roommate matching, and review analysis to improve trust and transparency in rental listings.
 
-Project Features:
-Property Discovery:
+#Project Features:
+#Property Discovery:
 
 Users can search rental houses based on location. The system displays available listings including rent, furnishing status, and bachelor availability.
 
-Dynamic Property Filtering:
+#Dynamic Property Filtering:
 
 Users can apply filters such as:
 
@@ -37,15 +37,15 @@ Furnishing status
 
 WiFi availability
 
-Description
+#Description:
 
 The page also includes the property owner's contact section and an embedded map showing the location.
 
-AI Roommate Matching:
+#AI Roommate Matching:
 
 The system recommends compatible roommates using a machine learning algorithm.
 
-User preferences such as:
+#User preferences such as:
 
 Budget
 
@@ -57,28 +57,28 @@ Food preference
 
 are converted into numerical vectors and compared using Cosine Similarity to find the best matches.
 
-Fraud Review Detection:
+#Fraud Review Detection:
 
 The platform analyzes user reviews using Natural Language Processing. Sentiment analysis is performed to detect suspicious or fake reviews and prevent manipulation of property ratings.
 
-Secure Authentication:
+#Secure Authentication:
 
 The application includes a secure login and registration system with password hashing to protect user credentials.
 
-Tech Stack:
+#Tech Stack:
 Backend
 Python
 Flask
 SQLAlchemy ORM
 SQLite Database
 
-Frontend:
+#Frontend:
 
 HTML
 CSS
 Jinja2 Templates
 
-AI / Machine Learning:
+#AI / Machine Learning:
 
 Pandas
 NumPy
