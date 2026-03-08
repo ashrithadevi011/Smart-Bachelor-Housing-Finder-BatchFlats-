@@ -97,13 +97,13 @@ Use PostgreSQL for scalable database management
 
 Output:
 
-1. Landing Page
+1. Landing Page:
    
-   A modern, glassmorphism-inspired landing page that allows bachelors to search for broker-free housing by location.
+A modern, glassmorphism-inspired landing page that allows bachelors to search for broker-free housing by location.
 
  <img width="1826" height="853" alt="Screenshot 2026-03-08 050022" src="https://github.com/user-attachments/assets/056c8d77-17e7-4049-b438-7d611c1a80a3" />
 
-2. Property Discovery
+2. Property Discovery:
      A dynamic gallery of featured listings showing transparent pricing and bachelor-friendly tags for properties across major          tech hubs.
 
    <img width="432" height="661" alt="Screenshot 2026-03-08 050110" src="https://github.com/user-attachments/assets/6bebec4f-141d-446c-8863-8d108437cbb2" />
