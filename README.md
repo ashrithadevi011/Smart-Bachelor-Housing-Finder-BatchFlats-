@@ -139,6 +139,39 @@ Login Page:
 <img width="448" height="448" alt="Screenshot 2026-03-08 050327" src="https://github.com/user-attachments/assets/55fa17dd-345b-4ce8-8e4c-3bcbfc2f31b1" />
 
 
+Revised Folder Structure (Based on your screenshots)
+A modular directory layout ensuring a clean separation between backend logic, frontend templates, and static assets.
+
+
+housing_app/
+├── instance/
+│   └── database.db         # Local SQLite database file [cite: 8]
+├── models/                 # Database schemas and logic [cite: 8]
+│   └── ai_engine.py        # AI matching and sentiment analysis logic [cite: 15, 16]
+├── static/                 # CSS, JS, and Media assets [cite: 12]
+│   ├── images/
+│   ├── js/
+│   └── videos/
+├── templates/              # HTML files powered by Jinja2 [cite: 10, 11]
+│   ├── base.html           # Master layout template
+│   ├── dashboard_owner.html# Owner-specific dashboard [cite: 24, 25]
+│   ├── dashboard_tenant.html # Tenant-specific dashboard [cite: 25]
+│   ├── index.html          # Landing page [cite: 13]
+│   ├── login.html          # User login page [cite: 33]
+│   ├── property_add.html   # Form for owners to list property [cite: 25]
+│   ├── property_details.html # Detailed property view [cite: 29]
+│   ├── property_list.html  # Main property gallery [cite: 11]
+│   ├── register.html       # User registration page [cite: 33]
+│   └── roommate.html       # Roommate matching interface [cite: 18, 23]
+├── app.py                  # Main Flask application entry point [cite: 1, 7]
+├── database.py             # Database configuration [cite: 8, 20]
+├── requirements.txt        # Project dependencies [cite: 15, 16]
+└── seed_db.py              # Script for initial database population
+
+
+#Author
+Made by Vagmare Ashritha Devi
+
 
 
 
