@@ -85,15 +85,6 @@ NumPy
 Scikit-Learn (Cosine Similarity)
 TextBlob (Sentiment Analysis)
 
-#Future Improvements:
-
-Add real-time chat between roommates
-
-Deploy application to cloud platform
-
-Implement image uploads for property listings
-
-Use PostgreSQL for scalable database management
 
 Output:
 1. Landing Page:
