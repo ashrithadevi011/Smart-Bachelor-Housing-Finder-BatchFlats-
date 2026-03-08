@@ -130,7 +130,8 @@ Login Page:
 <img width="448" height="448" alt="Screenshot 2026-03-08 050327" src="https://github.com/user-attachments/assets/55fa17dd-345b-4ce8-8e4c-3bcbfc2f31b1" />
 
 
-Revised Folder Structure (Based on your screenshots)
+#Revised Folder Structure (Based on your screenshots)
+
 A modular directory layout ensuring a clean separation between backend logic, frontend templates, and static assets.
 
 
@@ -160,7 +161,9 @@ housing_app/
 └── seed_db.py              # Script for initial database population
 
 
+
 #Author
+
 Made by Vagmare Ashritha Devi
 
 
