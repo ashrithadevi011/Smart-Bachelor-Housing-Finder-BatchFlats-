@@ -9,15 +9,7 @@ Users can search rental houses based on location. The system displays available 
 
 #Dynamic Property Filtering:
 
-Users can apply filters such as:
-
-Budget range
-
-Bachelor-friendly houses
-
-WiFi availability
-
-Food included
+Users can apply filters such as:, Budget range, Bachelor-friendly houses, WiFi availability and  Food included
 
 The backend processes these filters and retrieves matching properties from the database.
 
