@@ -132,8 +132,10 @@ A dedicated roommate portal that uses Scikit-Learn and Cosine Similarity to matc
 7. Secure Authentication:
 A secure registration flow that implements role-based access control for tenants and owners while ensuring password safety via PBKDF2 hashing.
 
+Sign Up Page
 <img width="544" height="707" alt="Screenshot 2026-03-08 050319" src="https://github.com/user-attachments/assets/0d4b8a11-c4f5-49c7-91ca-d5c0972e1fb8" />
 
+Login Page
 <img width="448" height="448" alt="Screenshot 2026-03-08 050327" src="https://github.com/user-attachments/assets/55fa17dd-345b-4ce8-8e4c-3bcbfc2f31b1" />
 
 
