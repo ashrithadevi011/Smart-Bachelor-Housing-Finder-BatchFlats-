@@ -108,5 +108,38 @@ A modern, glassmorphism-inspired landing page that allows bachelors to search fo
 
    <img width="432" height="661" alt="Screenshot 2026-03-08 050110" src="https://github.com/user-attachments/assets/6bebec4f-141d-446c-8863-8d108437cbb2" />
 
+3. Smart Search & Filters:
+An advanced filtering system that allows users to narrow down homes based on budget ranges and specific amenities like WiFi or food availability.
+
+
+<img width="952" height="860" alt="Screenshot 2026-03-08 050157" src="https://github.com/user-attachments/assets/9e2d4a3f-2a61-4f46-aaa2-79e26395d17b" />
+
+4. Detailed Property View & Maps:
+A comprehensive property detail page integrating location maps and direct owner contact information for seamless inquiries.
+
+<img width="1264" height="802" alt="Screenshot 2026-03-08 050215" src="https://github.com/user-attachments/assets/a7421da4-605b-4239-a163-f11d3ab733a9" />
+
+5. AI-Powered Fraud Detection:
+An intelligent review system using Natural Language Processing (NLP) to flag potentially fake or spam reviews, ensuring platform integrity.
+
+<img width="844" height="801" alt="Screenshot 2026-03-08 050238" src="https://github.com/user-attachments/assets/2467befe-5b5f-40cf-ab4e-72fa49e6b9b2" />
+
+6. AI Roommate Matching:
+A dedicated roommate portal that uses Scikit-Learn and Cosine Similarity to match users based on lifestyle habits, profession, and budget.
+
+<img width="1118" height="754" alt="Screenshot 2026-03-08 050304" src="https://github.com/user-attachments/assets/d9da237c-f6a8-469d-a836-f60a213c3492" />
+
+7. Secure Authentication:
+A secure registration flow that implements role-based access control for tenants and owners while ensuring password safety via PBKDF2 hashing.
+
+<img width="544" height="707" alt="Screenshot 2026-03-08 050319" src="https://github.com/user-attachments/assets/0d4b8a11-c4f5-49c7-91ca-d5c0972e1fb8" />
+
+<img width="448" height="448" alt="Screenshot 2026-03-08 050327" src="https://github.com/user-attachments/assets/55fa17dd-345b-4ce8-8e4c-3bcbfc2f31b1" />
+
+
+
+
+
+
 
 
