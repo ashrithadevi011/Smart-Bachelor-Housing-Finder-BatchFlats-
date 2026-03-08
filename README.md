@@ -17,17 +17,7 @@ The backend processes these filters and retrieves matching properties from the d
 
 Each property has a detailed page displaying:
 
-Property image
-
-Monthly rent
-
-Location
-
-Number of rooms
-
-Furnishing status
-
-WiFi availability
+Property image, Monthly rent, Location, Number of rooms, Furnishing status and WiFi availability.
 
 #Description:
 
