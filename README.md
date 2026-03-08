@@ -47,15 +47,7 @@ The system recommends compatible roommates using a machine learning algorithm.
 
 #User preferences such as:
 
-Budget
-
-Profession
-
-Sleep schedule
-
-Food preference
-
-are converted into numerical vectors and compared using Cosine Similarity to find the best matches.
+Budget, Profession, Sleep schedule and Food preference are converted into numerical vectors and compared using Cosine Similarity to find the best matches.
 
 #Fraud Review Detection:
 
