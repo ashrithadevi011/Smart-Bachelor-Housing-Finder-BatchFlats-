@@ -98,7 +98,7 @@ Use PostgreSQL for scalable database management
 Output:
 
 1. Landing Page
-2. A modern, glassmorphism-inspired landing page that allows bachelors to search for broker-free housing by location.
+A modern, glassmorphism-inspired landing page that allows bachelors to search for broker-free housing by location.
 
 3. <img width="1826" height="853" alt="Screenshot 2026-03-08 050022" src="https://github.com/user-attachments/assets/056c8d77-17e7-4049-b438-7d611c1a80a3" />
 
